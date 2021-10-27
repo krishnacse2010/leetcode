@@ -1,0 +1,15 @@
+Problem
+-------
+In a school, there are 5 sections for a specific standard. You are given the list of scores of students for each of the 5 sections arranged by the top scores.
+Generate an overall ranking of scores across the 5 sections.
+
+Interpretation
+--------------
+5 arrays of integers are given corresponding to scores of students of 5 sections. These arrays are already sorted in descending order.
+Make one more result array with all the 5 arrays combined and it should be in descending order
+
+Solution
+--------
+Take the first element of each of the arrays and insert into a max heap with O(n) time.
+Retrieve the top element of the max heap with O(1) time and fill into the result array
+Fill the heap with the next element from the array which was selected as the max element
