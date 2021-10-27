@@ -1,0 +1,20 @@
+Microsoft Interview
+-------------------
+
+1. Implement a data structure where -
+    - insertion of new elements is done in O(1) time
+    - deletion of new elements is done in O(1) time
+    - write a function that fetches a random element among all elements in O(1) time
+
+2. Given a sorted list of positive integers, find the kth missing number in this list compared to the sequence of positive integers
+    Eg - Given { 5, 6, 8, 10, 11}
+         Missing numbers - 1 2 3 4 7 9 12 13 ...
+         5th missing number - 7
+
+3. What is a Spin Lock and write an implementatio of spin lock
+
+4. Given a list of numbers, find the top 'k' repeated numbers i.e the most frequent numbers
+    Eg - Given { 4 8 9 4 4 9 3 8 7 3 }
+         k = 3 - Top 3 repeated numbers - { 4 8 9 } or { 4 9 3 } or { 4 8 3 } 
+         k = 4 - Top 4 repeated numbers - { 4 8 9 3 }
+         k = 1 - Top 1 repeated number - { 4 }
