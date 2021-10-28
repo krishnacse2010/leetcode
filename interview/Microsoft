@@ -6,10 +6,18 @@ Microsoft Interview
     - deletion of new elements is done in O(1) time
     - write a function that fetches a random element among all elements in O(1) time
 
+    Solution - Use a hash map to achieve constant time insertion/deletion operations. Hash function can be simple thing like a modulo operator. Collisions can be handled using another hash map just for the collided values for that hash (2nd level hash)
+               For randomly retrieving an element, store pointers to all inserted elements in another table and index a random number generated into this table. Make sure to have a back reference from the original hash to this table for delete operation.
+
+
 2. Given a sorted list of positive integers, find the kth missing number in this list compared to the sequence of positive integers
     Eg - Given { 5, 6, 8, 10, 11}
          Missing numbers - 1 2 3 4 7 9 12 13 ...
          5th missing number - 7
+
+   Solution - Starting the mid element in the array, find out if the Kth missing lies on the left or right side and keep doing this until we know exactly the elements between which the kth missing element is.
+              After this is a simple matter of arithmetic to find the kth missing. Time complexity 0(log n)
+
 
 3. What is a Spin Lock and write an implementatio of spin lock
 
