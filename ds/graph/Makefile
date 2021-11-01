@@ -10,11 +10,13 @@ CPP_11=--std=c++11
 
 FLAGS= ${GDB} ${CPP_11}
 
-FILES=List.cpp
-BIN=List.out
+FILES=Node.cpp Graph.cpp
+BIN=gr
+
+ENV=_GRAPH_TEST_
 
 all:
-	${CC} ${FLAGS} ${FILES} -o ${BIN}
+	${CC} ${FLAGS} ${FILES} -o ${BIN} -D ${ENV}
 
 run:
 	./${BIN}

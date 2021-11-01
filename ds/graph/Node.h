@@ -1,34 +1,46 @@
 #ifndef __NODE_H__
 #define __NODE_H__
 
-#include <sstream>
 #include <memory>
+#include <iostream>
+#include <vector>
 
-class Node
+class Edge;
+class Node;
+
+class Node : public std::enable_shared_from_this<Node>
 {
     public:
-        Node() { next = nullptr; value = 0; }
-        //value
-        int getValue() { return value;}
-        void setValue(int val) { value = val; }
+        Node(int value) { val = value; }
+        void addEdge(std::shared_ptr<Node> dest);
 
-        //next
-        void setNext(std::shared_ptr<Node> nextNode) { next = nextNode;}
-        std::shared_ptr<Node> getNext() { return next;}
+        int getValue() { return val;}
 
-        //display
-        void printNode(std::ostream& ss)
-        {
-            ss << "[" << value << "]";
-            if(next!=nullptr)
-                ss << "-->";
-            else
-                ss << "--|";
-        }
+        void print();
 
     private:
-    std::shared_ptr<Node> next;
-    int value;
+        std::vector<std::shared_ptr<Edge>> edges;
+        int val;
 };
-typedef std::shared_ptr<Node> NODE_S;
+typedef std::shared_ptr<Node> NODE;
+
+class Edge
+{
+    public:
+        Edge(NODE source, NODE destination)
+        {
+            src = source;
+            dest = destination;
+        }
+        
+        NODE getSource() {return src;}
+        NODE getDestination() {return dest;}
+
+    private:
+        NODE src;
+        NODE dest;
+};
+typedef std::shared_ptr<Edge> EDGE;
+
+
 #endif
