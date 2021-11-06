@@ -120,6 +120,50 @@ void Graph::printBFS(int start)
         }
         index++;
     }
+    std::cout << std::endl;
+}
+
+void traverse(NODE n)
+{
+    if(n!=nullptr)
+    {
+        if(n->isVisited() == false)
+        {
+            n->printShort();
+            n->setVisited();
+
+            std::vector<NODE> reach;
+            n->getEdgeNodes(reach);
+
+            for(auto& iter : reach)
+            {
+                NODE temp = iter;
+                traverse(temp); 
+            }
+        }
+    }
+}
+
+void Graph::printDFS(int start)
+{
+    std::cout << "Printing DFS" << std::endl;
+    NODE startNode = nullptr;
+    for(auto& iter : nodes)
+    {
+        if(iter->getValue() == start)
+        {
+            startNode = iter; 
+            break;
+        }
+    }
+
+    if(startNode==nullptr)
+    {
+        std::cout << "No node with value " << start << " found" << std::endl;
+        return;
+    }
+
+    traverse(startNode);
 }
 
 #ifdef _GRAPH_TEST_
@@ -143,6 +187,7 @@ int main()
 
     g.print();
     g.printBFS(4);
+    g.printDFS(4);
 
     return 0;
 }

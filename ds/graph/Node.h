@@ -11,7 +11,7 @@ class Node;
 class Node : public std::enable_shared_from_this<Node>
 {
     public:
-        Node(int value) { val = value; }
+        Node(int value) { val = value; visited = false;}
         void addEdge(std::shared_ptr<Node> dest);
 
         int getValue() { return val;}
@@ -19,10 +19,14 @@ class Node : public std::enable_shared_from_this<Node>
         void print();
         void printShort();
         void getEdgeNodes(std::vector<std::shared_ptr<Node>>& nodes);
+        void setVisited() { visited = true;}
+        void resetVisited() { visited = false; }
+        bool isVisited() { return visited; }
 
     private:
         std::vector<std::shared_ptr<Edge>> edges;
         int val;
+        bool visited;
 };
 typedef std::shared_ptr<Node> NODE;
 
