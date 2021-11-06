@@ -17,6 +17,8 @@ class Node : public std::enable_shared_from_this<Node>
         int getValue() { return val;}
 
         void print();
+        void printShort();
+        void getEdgeNodes(std::vector<std::shared_ptr<Node>>& nodes);
 
     private:
         std::vector<std::shared_ptr<Edge>> edges;

@@ -34,6 +34,20 @@ Node::print()
     }
 }
 
+void
+Node::printShort()
+{
+    std::cout << val << " ";
+}
+
+void Node::getEdgeNodes(std::vector<NODE>& nodes)
+{
+    for(auto& edge : edges)
+    {
+        nodes.push_back(edge->getDestination());
+    }
+}
+
 
 #ifdef _NODE_H_TEST_
 int main()
@@ -44,7 +58,6 @@ int main()
     NODE n3 = std::make_shared<Node>(3);
     NODE n4 = std::make_shared<Node>(4);
     NODE n5 = std::make_shared<Node>(5);
-    std::cout << "2" << std::endl;
 
     //Add edges
     //n1

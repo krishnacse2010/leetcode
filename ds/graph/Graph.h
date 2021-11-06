@@ -13,6 +13,9 @@ class Graph
         void addEdge(int src,int dest);
         void print();
 
+        void printBFS(int start);
+        void printDFS(int start);
+
     private:
         std::vector<NODE> nodes;
 };
