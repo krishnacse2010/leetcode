@@ -1,3 +1,5 @@
+Round 1 -
+---------
 Problem
 -------
 In a school, there are 5 sections for a specific standard. You are given the list of scores of students for each of the 5 sections arranged by the top scores.
@@ -13,3 +15,36 @@ Solution
 Take the first element of each of the arrays and insert into a max heap with O(n) time.
 Retrieve the top element of the max heap with O(1) time and fill into the result array
 Fill the heap with the next element from the array which was selected as the max element
+
+
+Round 2 -
+---------
+Problem
+-------
+Given an integer array that is sorted in the ascending order. Write a function to retrieve the floor value from the array of a given number.
+The floor function fl(n) for the array is defined as the greatest element in the array which is less than or equal to 'n'
+If n < first element of the array, return -1
+
+Interpretation
+--------------
+Arr - [ a0 a1 a2 a3 a4 a5 a6 ]
+val - n
+
+Floor(n) is ai such that (ai <= n) and (ai+1)>n
+OR
+Floor(n) is ai such the  (max( (ai <=n), (aj <= n) ... (az <=n) )) 
+
+Example
+-------
+
+Array - [ 5 22 35 44 50 56 77 ]
+Floor(37) = 35
+Floor(20) = 5
+Floor(2) = -1
+Floor(90) = 77
+Floor(56) = 56
+
+Solution
+--------
+Use binary search method to find the two indices i and j such that ai <= val and aj>val
+The floor value will be ai
